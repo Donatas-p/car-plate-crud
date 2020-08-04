@@ -1,1 +1,12 @@
-<p>plate-list works!</p>
+<div *ngFor="let plate of plates" class="list">
+    <div class="list-item">
+        <div class="plate">{{ plate.plate }}</div>
+        <div class="name">{{ plate.name }}</div>
+        <div class="surname">{{ plate.surname }}</div>
+        <div class="actions">
+            <button class="edit">Edit</button>
+            <button class="remove">Remove</button>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+$nav-text: white;
+$header-color: #003454;
+
+header {
+    background-color: $header-color;
+    div.title{ 
+        padding: 10px;
+        font-size: 22px;
+        text-align: center;
+        a {
+            color: $nav-text;
+            text-decoration: none;
+        }
+    }
+}
+nav {
+    background-color: $header-color;
+    margin: auto;
+    padding: 20px;
+    a {
+        padding: 10px;
+        color: $nav-text;
+        text-decoration: none;
+        font-weight: normal;
+        font-size: 16px;
+        &.login {
+            float: right;
+        }
+    }
+}

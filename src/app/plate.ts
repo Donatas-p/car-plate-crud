@@ -1,5 +1,5 @@
-export class Plates {
-    _id: string;
+export class Plate {
+    id: string;
     plate: string;
     name: string;
     surname: string;

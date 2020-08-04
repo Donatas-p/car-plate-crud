@@ -1,0 +1,28 @@
+$nav-text: white;
+$primary-color: #003454;
+.list-item {
+    border: $primary-color 2px solid;
+    padding: 10px;
+    div {
+        display: inline-block;
+        padding: 0 10px;
+    }
+    .actions {
+        float: right;
+        .edit {
+            background-color: lightgreen;
+        }
+        .remove {
+            background-color: lightcoral;
+        }
+        button {
+            padding: 10px;
+            margin: 0 10px;
+        }
+    }
+}
+.clearfix {
+    clear: both;
+    float: none;
+    display: block !important;
+}

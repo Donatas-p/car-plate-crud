@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Plates } from '../plates';
+import { Plate } from '../plate';
+import { PLATES } from '../mock-plates';
 
 @Component({
   selector: 'app-plate-list',
@@ -8,12 +9,15 @@ import { Plates } from '../plates';
 })
 export class PlateListComponent implements OnInit {
 
+  plates: Plate[] = [];
   displayedColumns: string[] = ['plate', 'name', 'surname']
   isLoadingResults = true;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.plates = PLATES;
+    console.log(this.plates);
   }
 
 }
