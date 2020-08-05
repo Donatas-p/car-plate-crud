@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Plate } from '../plate';
 import { PLATES } from '../mock-plates';
+import { PlateService } from '../plate.service';
 
 @Component({
   selector: 'app-plate-list',
@@ -13,11 +14,17 @@ export class PlateListComponent implements OnInit {
   displayedColumns: string[] = ['plate', 'name', 'surname']
   isLoadingResults = true;
 
-  constructor() { }
+  constructor(private plateService: PlateService) { }
 
   ngOnInit(): void {
-    this.plates = PLATES;
+    this.getPlates();
     console.log(this.plates);
+  }
+
+  getPlates(): void {
+    this.plateService
+      .getPlates()
+      .subscribe(plates => (this.plates = plates));
   }
 
 }
