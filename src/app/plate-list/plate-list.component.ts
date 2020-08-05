@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Plate } from '../plate';
-import { PLATES } from '../mock-plates';
 import { PlateService } from '../plate.service';
 
 @Component({

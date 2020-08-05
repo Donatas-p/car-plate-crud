@@ -1,17 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { PLATES } from './mock-plates';
 import { Plate } from './plate';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlateService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getPlates(): Observable<Plate[]> {
-    const plates: Plate[] = PLATES;
-    return of(plates);
+    return this.http.get<Plate[]>("http://localhost:8000/plates");
+  }
+
+  getPlate(id: string): Observable<Plate[]> {
+    return this.http.get<Plate[]>("http://localhost:8000/plate/" + id);
   }
 }
