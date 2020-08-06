@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PlateListComponent } from './plate-list/plate-list.component';
+import { PlateListComponent, PlateListDeleteDialog } from './plate-list/plate-list.component';
 import { EditPlateComponent } from './edit-plate/edit-plate.component';
 import { AddPlateComponent } from './add-plate/add-plate.component';
 
@@ -27,6 +27,7 @@ import { NavigationComponent } from './navigation/navigation.component';
   declarations: [
     AppComponent,
     PlateListComponent,
+    PlateListDeleteDialog,
     EditPlateComponent,
     AddPlateComponent,
     NavigationComponent

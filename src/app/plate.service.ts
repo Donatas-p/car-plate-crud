@@ -28,4 +28,7 @@ export class PlateService {
   addPlate(plate: string, name: string, surname: string) {
     return this.http.get<Plate[]>("http://localhost:8000/addPlate/"+ plate + "/" + name + "/" + surname);
   }
+  deletePlate(id: string) {
+    return this.http.get<Plate[]>("http://localhost:8000/removePlate/"+ id);
+  }
 }

@@ -5,7 +5,7 @@
         <div class="surname">{{ plate.surname }}</div>
         <div class="actions">
             <button class="edit">Edit</button>
-            <button class="remove">Remove</button>
+            <button mat-raised-button class="remove" (click)="openDeleteDialog(plate.plate, plate.id)">Remove</button>
         </div>
         <div class="clearfix"></div>
     </div>

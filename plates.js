@@ -31,13 +31,20 @@ module.exports = function (app) {
   });
 
   app.get("/addPlate/:plate/:name/:surname",function(request, response) {
-    console.log('add plate works in node');
     con.query("INSERT INTO `plates_db`.`plates_table` (`plate`, `name`, `surname`) VALUES (?, ?, ?);",
     [
       request.params.plate,
       request.params.name,
       request.params.surname,
     ], function (err, result, fields) {
+      if (err) throw err;
+      response.send(result);
+    });
+  })
+  app.get("/removePlate/:id",function(request, response) {
+    console.log('remove plate works in node');
+    con.query("DELETE FROM `plates_db`.`plates_table` WHERE(`id` = ?)",
+    [request.params.id], function (err, result, fields) {
       if (err) throw err;
       response.send(result);
     });
