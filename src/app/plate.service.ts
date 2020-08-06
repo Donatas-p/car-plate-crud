@@ -25,7 +25,7 @@ export class PlateService {
     return this.http.get<Plate[]>("http://localhost:8000/plate/" + id);
   }
 
-  addPlate(plate: string, name: string, surname: string): Observable<Plate[]> {
-    return this.http.post<Plate[]>("http://localhost:8000/addPlate/" + plate + '/' + name + '/'+ surname, plate, httpOptions);
+  addPlate(plate: string, name: string, surname: string) {
+    return this.http.get<Plate[]>("http://localhost:8000/addPlate/"+ plate + "/" + name + "/" + surname);
   }
 }

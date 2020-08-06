@@ -3,5 +3,4 @@ export class Plate {
     plate: string;
     name: string;
     surname: string;
-    updated: Date;
 }
