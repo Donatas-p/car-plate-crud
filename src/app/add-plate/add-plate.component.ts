@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-add-plate',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddPlateComponent implements OnInit {
 
-  constructor() { }
+  addForm: FormGroup;
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.addForm = this.fb.group({
+      plate: '',
+      name: '',
+      surname: ''
+    });
+
+    this.addForm.valueChanges.subscribe(console.log);
+  }
+
+  submitAdd() {
+
   }
 
 }

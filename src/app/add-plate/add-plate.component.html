@@ -1,1 +1,17 @@
-<p>add-plate works!</p>
+<form [formGroup]="addForm" color="accent">
+
+  <mat-form-field>
+    <input matInput placeholder="Plate number" formControlName="plate">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Name" formControlName="name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Surname" formControlName="surname">
+  </mat-form-field>
+
+  <button mat-button color="primary" (click)="submitAdd()">Add New Plate</button>
+
+</form>
