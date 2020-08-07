@@ -25,8 +25,6 @@ export class AddPlateComponent implements OnInit {
       name: '',
       surname: ''
     });
-
-    this.addForm.valueChanges.subscribe(console.log);
   }
 
   submitAdd() {

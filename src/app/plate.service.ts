@@ -31,4 +31,7 @@ export class PlateService {
   deletePlate(id: string) {
     return this.http.get<Plate[]>("http://localhost:8000/removePlate/"+ id);
   }
+  editPlate(data: Plate) {
+    return this.http.get<Plate[]>("http://localhost:8000/editPlate/"+data.id+"/"+data.plate+"/"+data.name+"/"+data.surname);
+  }
 }

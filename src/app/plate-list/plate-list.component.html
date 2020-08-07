@@ -1,10 +1,10 @@
-<div *ngFor="let plate of plates" class="list">
-    <div class="list-item">
+<div class="list">
+    <div class="list-item" *ngFor="let plate of plates" >
         <div class="plate">{{ plate.plate }}</div>
         <div class="name">{{ plate.name }}</div>
         <div class="surname">{{ plate.surname }}</div>
         <div class="actions">
-            <button class="edit">Edit</button>
+            <button mat-raised-button class="edit" (click)="openEditDialog(plate)">Edit</button>
             <button mat-raised-button class="remove" (click)="openDeleteDialog(plate.plate, plate.id)">Remove</button>
         </div>
         <div class="clearfix"></div>

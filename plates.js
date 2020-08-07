@@ -40,13 +40,21 @@ module.exports = function (app) {
       if (err) throw err;
       response.send(result);
     });
-  })
+  });
+
   app.get("/removePlate/:id",function(request, response) {
-    console.log('remove plate works in node');
     con.query("DELETE FROM `plates_db`.`plates_table` WHERE(`id` = ?)",
     [request.params.id], function (err, result, fields) {
       if (err) throw err;
       response.send(result);
     });
-  })
+  });
+
+  app.get("/editPlate/:id/:plate/:name/:surname",function(request, response) {
+    con.query("UPDATE `plates_db`.`plates_table` SET `plate` = ?, `name` = ?, `surname` = ? WHERE (`id` = ?);",
+    [request.params.plate, request.params.name, request.params.surname, request.params.id], function (err, result, fields) {
+      if (err) throw err;
+      response.send(result);
+    });
+  });
 };

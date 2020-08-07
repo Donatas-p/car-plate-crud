@@ -1,11 +1,14 @@
 $nav-text: white;
 $primary-color: #003454;
+.list {
+  background-color: white;
+}
 .list-item {
     border: $primary-color 2px solid;
     padding: 10px;
     div {
         display: inline-block;
-        padding: 0 10px;
+        padding: 20px;
     }
     .actions {
         float: right;
@@ -25,4 +28,6 @@ $primary-color: #003454;
     clear: both;
     float: none;
     display: block !important;
+    padding: 0 !important;
+    margin: 0 !important;
 }
