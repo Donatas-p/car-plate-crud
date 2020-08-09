@@ -16,7 +16,7 @@ con.connect(function(err) {
 
 module.exports = function (app) {
   app.get("/plates", function(request, response) {
-      con.query("SELECT * FROM plates_db.plates_table", function (err, result, fields) {
+      con.query("SELECT * FROM plates_db.plates_table order by name desc", function (err, result, fields) {
         if (err) throw err;
         response.send(result);
       });
