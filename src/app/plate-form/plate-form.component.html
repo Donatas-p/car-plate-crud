@@ -1,0 +1,41 @@
+<form [formGroup]="plateForm" color="accent" (ngSubmit)="submit()">
+
+  <mat-form-field>
+    <input matInput placeholder="Plate number" formControlName="plate">
+    <mat-error *ngIf="plate.invalid && (plate.dirty || plate.touched)">
+      <span *ngIf="plate.invalid">
+        Plate is invalid
+      </span>
+      <span *ngIf="plate.errors.required">
+        Plate is required.
+      </span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Name" formControlName="name">
+    <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">
+      <span *ngIf="name.invalid">
+        Name is Invalid
+      </span>
+      <span *ngIf="name.errors.required">
+        Name is required.
+      </span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Surname" formControlName="surname">
+    <mat-error *ngIf="surname.invalid && (surname.dirty || surname.touched)">
+      <span *ngIf="surname.invalid">
+        Surname is Invalid
+      </span>
+      <span *ngIf="surname.errors.required">
+        Surname is required.
+      </span>
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-button color="primary" [disabled]="plateForm.invalid"  type="submit">{{ buttonText }}</button>
+
+</form>

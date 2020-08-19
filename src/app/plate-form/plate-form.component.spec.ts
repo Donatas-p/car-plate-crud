@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditPlateComponent } from './edit-plate.component';
+import { PlateFormComponent } from './plate-form.component';
 
-describe('EditPlateComponent', () => {
-  let component: EditPlateComponent;
-  let fixture: ComponentFixture<EditPlateComponent>;
+describe('PlateFormComponent', () => {
+  let component: PlateFormComponent;
+  let fixture: ComponentFixture<PlateFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditPlateComponent ]
+      declarations: [ PlateFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EditPlateComponent);
+    fixture = TestBed.createComponent(PlateFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -56,8 +56,6 @@ export class PlateListComponent implements OnInit {
       if(typeof(result) !='undefined') {
         if (JSON.stringify(result) === JSON.stringify(data)) {
           return;
-        } else {
-          this.editPlate(result);
         }
       }
     });
@@ -65,11 +63,6 @@ export class PlateListComponent implements OnInit {
 
   deletePlate(id: string): void {
     this.plateService.deletePlate(id).subscribe();
-    this.getPlates();
-  }
-
-  editPlate(data: Plate): void {
-    this.plateService.editPlate(data).subscribe();
     this.getPlates();
   }
 }
@@ -96,24 +89,31 @@ export class PlateListDeleteDialog {
   templateUrl: 'plate-list-edit-dialog.html',
 })
 export class PlateListEditDialog {
-  editForm: FormGroup;
+
+  editId:string;
+  editPlate: string;
+  editName: string;
+  editSurname: string;
 
   constructor(
+    private plateService: PlateService,
     public dialogRef: MatDialogRef<PlateListEditDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    private fb: FormBuilder
+    @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {}
 
   ngOnInit(): void {
-    this.editForm = this.fb.group({
-      id: this.data.plateData.id,
-      plate: this.data.plateData.plate,
-      name: this.data.plateData.name,
-      surname: this.data.plateData.surname,
-    });
+    this.editId = this.data.plateData.id;
+    this.editPlate = this.data.plateData.plate;
+    this.editName = this.data.plateData.name;
+    this.editSurname = this.data.plateData.surname;
   }
+
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  editSubmit(data: Plate): void {
+    this.plateService.editPlate(data).subscribe();
   }
 }

@@ -20,52 +20,12 @@ export class AddPlateComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.addForm = this.fb.group({
-      plate: ['',
-        [
-          Validators.required,
-          Validators.pattern('[A-Z]{3}[0-9]{3}|[H][0-9]{5}|[E][A-Z][0-9]{4}[A-Z0-9]+{1,6}')
-        ]
-      ],
-      name: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern('[a-zA-Z]+')
-        ]
-      ],
-      surname: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern('[a-zA-Z]+')
-        ]
-      ]
-    });
   }
 
-  submitAdd() {
+  submit(formData: any) {
     this.plateService
-      .addPlate(this.addForm.value.plate, this.addForm.value.name, this.addForm.value.surname)
+      .addPlate(formData[0], formData[1], formData[2])
       .subscribe();
-    this.addForm = this.fb.group({
-      plate: '',
-      name: '',
-      surname: ''
-    });
-
-  }
-
-  get plate() {
-    return this.addForm.get('plate');
-  }
-
-  get name() {
-    return this.addForm.get('name');
-  }
-
-  get surname() {
-    return this.addForm.get('surname');
   }
 
 }

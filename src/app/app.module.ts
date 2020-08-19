@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PlateListComponent, PlateListDeleteDialog, PlateListEditDialog } from './plate-list/plate-list.component';
-import { EditPlateComponent } from './edit-plate/edit-plate.component';
 import { AddPlateComponent } from './add-plate/add-plate.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -20,6 +19,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { NavigationComponent } from './navigation/navigation.component';
+import { PlateFormComponent } from './plate-form/plate-form.component';
 
 
 
@@ -29,9 +29,9 @@ import { NavigationComponent } from './navigation/navigation.component';
     PlateListComponent,
     PlateListDeleteDialog,
     PlateListEditDialog,
-    EditPlateComponent,
     AddPlateComponent,
-    NavigationComponent
+    NavigationComponent,
+    PlateFormComponent
   ],
   imports: [
     BrowserModule,
