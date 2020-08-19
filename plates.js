@@ -15,8 +15,9 @@ con.connect(function(err) {
 });
 
 module.exports = function (app) {
-  app.get("/plates", function(request, response) {
-      con.query("SELECT * FROM plates_db.plates_table order by name desc", function (err, result, fields) {
+  limiter = 10;
+  app.get("/plates/page/:page", function(request, response) {
+      con.query("SELECT * FROM plates_db.plates_table order by name desc limit " + limiter*request.params.page + "," + limiter*(request.params.page+1) + ";", function (err, result, fields) {
         if (err) throw err;
         response.send(result);
       });

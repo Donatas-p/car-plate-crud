@@ -22,9 +22,9 @@ export class AddPlateComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submit(formData: any) {
+  submit(data: Plate) {
     this.plateService
-      .addPlate(formData[0], formData[1], formData[2])
+      .addPlate(data)
       .subscribe();
   }
 

@@ -21,15 +21,16 @@ export class PlateListComponent implements OnInit {
   plates: Plate[] = [];
   displayedColumns: string[] = ['plate', 'name', 'surname'];
   isLoadingResults = true;
+  page: number = 0;
 
   constructor(private plateService: PlateService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
-    this.getPlates();
+    this.getPlates(this.page);
   }
 
-  getPlates(): void {
-    this.plateService.getPlates().subscribe((plates) => (this.plates = plates));
+  getPlates(page: number): void {
+    this.plateService.getPlates(page).subscribe((plates) => (this.plates = plates));
   }
 
   openDeleteDialog(plate: string, id: string): void {
@@ -53,6 +54,7 @@ export class PlateListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
+      this.getPlates(this.page);
       if(typeof(result) !='undefined') {
         if (JSON.stringify(result) === JSON.stringify(data)) {
           return;
@@ -63,7 +65,7 @@ export class PlateListComponent implements OnInit {
 
   deletePlate(id: string): void {
     this.plateService.deletePlate(id).subscribe();
-    this.getPlates();
+    this.getPlates(this.page);
   }
 }
 
@@ -115,5 +117,6 @@ export class PlateListEditDialog {
 
   editSubmit(data: Plate): void {
     this.plateService.editPlate(data).subscribe();
+    this.dialogRef.close();
   }
 }

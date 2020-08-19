@@ -17,16 +17,16 @@ export class PlateService {
 
   constructor(private http: HttpClient) { }
 
-  getPlates(): Observable<Plate[]> {
-    return this.http.get<Plate[]>("http://localhost:8000/plates");
+  getPlates(page: number): Observable<Plate[]> {
+    return this.http.get<Plate[]>("http://localhost:8000/plates/page/" + page);
   }
 
   getPlate(id: string): Observable<Plate[]> {
     return this.http.get<Plate[]>("http://localhost:8000/plate/" + id);
   }
 
-  addPlate(plate: string, name: string, surname: string) {
-    return this.http.get<Plate[]>("http://localhost:8000/addPlate/"+ plate + "/" + name + "/" + surname);
+  addPlate(data: Plate) {
+    return this.http.get<Plate[]>("http://localhost:8000/addPlate/"+ data.plate + "/" + data.name + "/" + data.surname);
   }
   deletePlate(id: string) {
     return this.http.get<Plate[]>("http://localhost:8000/removePlate/"+ id);
