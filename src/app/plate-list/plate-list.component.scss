@@ -1,5 +1,18 @@
 $nav-text: white;
 $primary-color: #003454;
+.next-page,
+.prev-page,
+.page-num {
+  margin: 10px;
+  box-sizing: border-box;
+  width: calc(33.3% - 20px);
+}
+.next-page {
+  float: right;
+}
+.page-num {
+  text-align: center;
+}
 .list {
   background-color: white;
 }

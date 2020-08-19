@@ -21,16 +21,42 @@ export class PlateListComponent implements OnInit {
   plates: Plate[] = [];
   displayedColumns: string[] = ['plate', 'name', 'surname'];
   isLoadingResults = true;
-  page: number = 0;
+  page: number = 1;
+  lastPage: number = 1;
 
   constructor(private plateService: PlateService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.getPlates(this.page);
+    this.getLastPage();
+  }
+
+  prevPage(): void {
+    if(this.page > 1){
+      this.page--;
+      this.getPlates(this.page);
+    }
+  }
+
+  nextPage(): void {
+    if(this.page < this.lastPage) {
+      this.page++;
+      this.getPlates(this.page);
+    }
+
+  }
+
+  goToPage(event: any): void {
+    this.page = event.target.value;
+    this.getPlates(this.page);
   }
 
   getPlates(page: number): void {
     this.plateService.getPlates(page).subscribe((plates) => (this.plates = plates));
+  }
+
+  getLastPage(): void {
+    this.plateService.getLastPage().subscribe((lastPage) => (this.lastPage = lastPage[0].lastPage, console.log(lastPage[0].lastPage)));
   }
 
   openDeleteDialog(plate: string, id: string): void {

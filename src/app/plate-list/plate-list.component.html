@@ -1,4 +1,7 @@
 <div class="list">
+  <button mat-raised-button class="prev-page" (click)="prevPage()"><- Previous page</button>
+  <input class="page-num" [value]="page" (keyup)="goToPage($event)"/>
+  <button mat-raised-button class="next-page" (click)="nextPage()">Next page -></button>
     <div class="list-item" *ngFor="let plate of plates" >
         <div class="plate">{{ plate.plate }}</div>
         <div class="name">{{ plate.name }}</div>
