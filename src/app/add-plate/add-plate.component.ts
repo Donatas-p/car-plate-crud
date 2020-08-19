@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Plate } from '../plate';
 import { PlateService } from '../plate.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
@@ -21,9 +21,26 @@ export class AddPlateComponent implements OnInit {
 
   ngOnInit(): void {
     this.addForm = this.fb.group({
-      plate: '',
-      name: '',
-      surname: ''
+      plate: ['',
+        [
+          Validators.required,
+          Validators.pattern('[A-Z]{3}[0-9]{3}|[H][0-9]{5}|[E][A-Z][0-9]{4}[A-Z0-9]+{1,6}')
+        ]
+      ],
+      name: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('[a-zA-Z]+')
+        ]
+      ],
+      surname: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('[a-zA-Z]+')
+        ]
+      ]
     });
   }
 
@@ -37,6 +54,18 @@ export class AddPlateComponent implements OnInit {
       surname: ''
     });
 
+  }
+
+  get plate() {
+    return this.addForm.get('plate');
+  }
+
+  get name() {
+    return this.addForm.get('name');
+  }
+
+  get surname() {
+    return this.addForm.get('surname');
   }
 
 }
