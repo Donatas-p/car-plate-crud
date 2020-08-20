@@ -8,6 +8,6 @@ Run `ng serve` for a dev frontend to work. Navigate to `http://localhost:4200/`.
 
 ## Run backend
 
-Run `node server.js` to run a node server that would take data from locala MySQL server with user "root" and password "password" on database "plates_db"
+Run `node server.js` to run a node server that would take data from locala MySQL server with user "root" and password "password" on database "plates_db", Or all these parts can be changed in "car-plate-crud/plates.js" lines 3-8
 
 It creates table by itself if it doesn't find one.
