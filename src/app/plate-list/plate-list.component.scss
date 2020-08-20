@@ -7,6 +7,10 @@ $primary-color: #003454;
   box-sizing: border-box;
   width: calc(33.3% - 20px);
 }
+.search {
+  padding: 20px;
+  font-size: 16px;
+}
 .next-page {
   float: right;
 }
@@ -19,6 +23,9 @@ $primary-color: #003454;
 .list-item {
     border: $primary-color 2px solid;
     padding: 10px;
+    &:not(:last-child) {
+      border-bottom: none;
+    }
     div {
         display: inline-block;
         padding: 20px;
