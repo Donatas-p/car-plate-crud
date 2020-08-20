@@ -23,7 +23,7 @@ module.exports = function (app) {
     });
   });
   app.get("/plates/page/:page", function(request, response) {
-      con.query("SELECT * FROM plates_db.plates_table order by name desc limit " + limiter*(request.params.page-1) + "," + limiter*request.params.page + ";", function (err, result, fields) {
+      con.query("SELECT * FROM plates_db.plates_table order by name ASC limit " + limiter*(request.params.page-1) + "," + limiter*request.params.page + ";", function (err, result, fields) {
         if (err) throw err;
         response.send(result);
       });
