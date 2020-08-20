@@ -55,6 +55,10 @@ export class PlateListComponent implements OnInit {
     this.plateService.getPlates(page).subscribe((plates) => (this.plates = plates));
   }
 
+  searchPlates(event: any): void {
+    this.plateService.searchPlates(event.target.value).subscribe((plates) => (this.plates = plates));
+  }
+
   getLastPage(): void {
     this.plateService.getLastPage().subscribe((lastPage) => (this.lastPage = lastPage[0].lastPage, console.log(lastPage[0].lastPage)));
   }

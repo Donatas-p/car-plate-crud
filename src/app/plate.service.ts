@@ -39,4 +39,8 @@ export class PlateService {
   editPlate(data: Plate) {
     return this.http.get<Plate[]>("http://localhost:8000/editPlate/"+data.id+"/"+data.plate+"/"+data.name+"/"+data.surname);
   }
+
+  searchPlates(searchString: string): Observable<Plate[]> {
+    return this.http.get<Plate[]>("http://localhost:8000/search/" + searchString);
+  }
 }
